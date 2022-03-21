@@ -12,11 +12,6 @@ pipeline {
 	}
 
 	stages{
-		stage('build'){
-        	steps(maven: 'mvn') {
-            	sh "mvn clean package"
-        	}
-    	}
 		stage('Build'){
 			steps{
 				sh "mvn --version"
@@ -27,6 +22,7 @@ pipeline {
 				echo "BUILD ID - $env.BUILD_ID"
 				echo "Job Name - $env.JOB_NAME"
 				echo "Build Tag - $env.BUILD_TAG"
+				echo "PATH -> $PATH "
 			}
 		}
 		stage('Test'){
