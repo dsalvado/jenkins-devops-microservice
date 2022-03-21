@@ -12,6 +12,11 @@ pipeline {
 	}
 
 	stages{
+		stage('build'){
+        withMaven(maven: 'mvn') {
+            sh "mvn clean package"
+        	}
+    	}
 		stage('Build'){
 			steps{
 				sh "mvn --version"
